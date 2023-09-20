@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <h1>BMI Calculator</h1>
+
+    <label for="w">Weight (kg):</label>
+    <input type="t" id="weight"><br>
+
+    <label for="h">Height (cm):</label>
+    <input type="text" id="height"><br>
+
+    <button onclick="calculateBMI()">Calculate BMI</button><br>
+
+    <div id="ans"></div>
+
+    <script>
+        function calculateBMI() {
+             weight = document.getElementById("weight").value;
+            
+             height = document.getElementById("height").value / 100;
+
+            if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+                document.getElementById("ans").innerText = "Please enter valid weight and height.";
+                return;
+            }
+
+             bmi = weight / (height * height);
+            document.getElementById("ans").innerText = `Your BMI is: ${bmi.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
